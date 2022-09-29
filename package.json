@@ -6,9 +6,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@heroicons/react": "^2.0.11",
+    "@mui/joy": "^5.0.0-alpha.46",
+    "@supabase/supabase-js": "^1.35.7",
     "next": "latest",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
