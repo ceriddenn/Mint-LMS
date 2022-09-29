@@ -36,7 +36,7 @@ const Sidebar = () => {
 
             </div>
             <div className='flex items-center group'>
-            <a href="/core/lms/student/allcourses" class={router.pathname == "/core/lms/student/allcourses" ? "p-2 rounded-lg bg-gray-500 dark:bg-gray-500 hover:bg-gray-500" : "p-2 rounded-lg bg-gray-700 dark:bg-gray-700 hover:bg-gray-500" }>
+            <a href={`/core/lms/${userType}/allcourses`} class={router.pathname == "/core/lms/student/allcourses" ? "p-2 rounded-lg bg-gray-500 dark:bg-gray-500 hover:bg-gray-500" : "p-2 rounded-lg bg-gray-700 dark:bg-gray-700 hover:bg-gray-500" }>
                 <BookOpenIcon width={30} height={30}/>
             </a>
             <h1 className='hidden group-hover:block text-gray-800 ml-5 bg-blue-400 py-1 px-3 rounded-md text-md'>Courses</h1>

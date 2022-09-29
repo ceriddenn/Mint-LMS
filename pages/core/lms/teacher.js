@@ -36,7 +36,7 @@ const teacher = () => {
     const setCurrentCourse = (event, courseId) => {
         event.preventDefault()
         localStorage.setItem('currentCourse', courseId)
-        router.push('/core/lms/teacher/course')
+        router.push('/core/lms/teacher/course/feed')
     }
   return (
     <div className='flex flex-col bg-gray-500'>
