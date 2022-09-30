@@ -32,6 +32,7 @@ const teacher = () => {
     }, [])
     const handleCourseCreation = (event) => {
         event.preventDefault()
+        router.push('/core/lms/teacher/createcourse')
     }
     const setCurrentCourse = (event, courseId) => {
         event.preventDefault()
@@ -49,7 +50,9 @@ const teacher = () => {
         <span class="h-7 p-0.5 bg-gray-600  mt-7 "></span>
         </div>
         <div className='flex flex-row'>
+            
         <h1 className='mt-6 ml-12 text-2xl font-bold text-white'>Courses:</h1>
+        <button type="button" class="mt-6 ml-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={event => handleCourseCreation(event)}>Create a Course</button>
         {/*<ArrowDownIcon color='black' height={22} width={22} className="mt-8 ml-2" />
         <ArrowRightIcon color='black' height={22} width={22} className="mt-8 ml-2" />
         */}

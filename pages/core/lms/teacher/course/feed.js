@@ -28,8 +28,10 @@ const feed = () => {
         <div className='flex '>
         <div className='flex flex-row'>
         <h1 className='text-2xl text-white font-extrabold pt-6 pl-12 pr-4'>Course</h1>
+        
         <span class="h-7 p-0.5 bg-gray-600  mt-7 "></span>
         <span className='text-2xl text-white font-extrabold pt-6 pl-4 pr-4'></span>
+        
         </div>
         </div>
     </div>
