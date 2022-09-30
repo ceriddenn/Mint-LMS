@@ -44,14 +44,14 @@ const Sidebar = () => {
             </div>
 
             <div className='flex items-center group'>
-            <a href="/core/lms/student/grades" class={router.pathname == "/core/lms/student/grades" ? "p-2 rounded-lg bg-gray-500 dark:bg-gray-500 hover:bg-gray-500" : "p-2 rounded-lg bg-gray-700 dark:bg-gray-700 hover:bg-gray-500" }>
+            <a href={`/core/lms/${userType}/grades`} class={router.pathname == "/core/lms/student/grades" ? "p-2 rounded-lg bg-gray-500 dark:bg-gray-500 hover:bg-gray-500" : "p-2 rounded-lg bg-gray-700 dark:bg-gray-700 hover:bg-gray-500" }>
                 <AcademicCapIcon width={30} height={30}/>
             </a>
             <h1 className='hidden group-hover:block text-gray-800 ml-5 bg-blue-400 py-1 px-3 rounded-md text-md'>Grades</h1>
 
             </div>
             <div className='flex items-center group'>
-            <a href="/core/lms/student/todo" class={router.pathname == "/core/lms/student/todo" ? "p-2 rounded-lg bg-gray-500 dark:bg-gray-500 hover:bg-gray-500" : "p-2 rounded-lg bg-gray-700 dark:bg-gray-700 hover:bg-gray-500" }>
+            <a href={`/core/lms/${userType}/todo`} class={router.pathname == "/core/lms/student/todo" ? "p-2 rounded-lg bg-gray-500 dark:bg-gray-500 hover:bg-gray-500" : "p-2 rounded-lg bg-gray-700 dark:bg-gray-700 hover:bg-gray-500" }>
                 <ClipboardDocumentListIcon width={30} height={30}/>
             </a>
             <h1 className='hidden group-hover:block text-gray-800 ml-5 bg-blue-400 py-1 px-3 rounded-md text-md'>Todo</h1>
@@ -59,7 +59,7 @@ const Sidebar = () => {
             </div>
         </div>
         <div className='flex items-center group pt-44'>
-            <a href="/core/lms/student/account" class={router.pathname == "/core/lms/student/account" ? "p-2 rounded-lg bg-gray-500 dark:bg-gray-500 hover:bg-gray-500" : "p-2 rounded-lg bg-gray-700 dark:bg-gray-700 hover:bg-gray-500" }>
+            <a href={`/core/lms/${userType}/account"`} class={router.pathname == "/core/lms/student/account" ? "p-2 rounded-lg bg-gray-500 dark:bg-gray-500 hover:bg-gray-500" : "p-2 rounded-lg bg-gray-700 dark:bg-gray-700 hover:bg-gray-500" }>
                 <UserCircleIcon width={30} height={30}/>
             </a>
             <h1 className='hidden group-hover:block text-gray-800 ml-5 bg-blue-400 py-1 px-3 rounded-md text-md'>Account</h1>
