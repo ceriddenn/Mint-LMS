@@ -2,11 +2,13 @@ import supabase from "./supabase"
 
 const fetchUserCourses = async (userId) => {
     const user = supabase.auth.session()
-    let courseObj;
+    let coursesObj = []
     await supabase.from("courses").select("*").match({instructor: userId}).then(res => {
-        courseObj = res.data[0]
+        res.data.map(course => {
+            coursesObj = [...coursesObj, course]
+        })
     })
-    return courseObj;
+    return coursesObj;
 }
 const getCourseDataFromId = async (courseId) => {
     let courseObj;
@@ -15,4 +17,11 @@ const getCourseDataFromId = async (courseId) => {
     })
     return courseObj;
 }
-export {fetchUserCourses, getCourseDataFromId}
+const isUserTeacher = async (userId) => {
+    let isTeacher;
+    await supabase.from("users").select("*").eq("userId", userId).then(res => {
+        isTeacher = res.data[0].isTeacher
+    })
+    return isTeacher;
+}
+export {fetchUserCourses, getCourseDataFromId, isUserTeacher}

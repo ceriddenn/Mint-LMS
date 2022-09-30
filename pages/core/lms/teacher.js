@@ -8,6 +8,7 @@ import {fetchUserCourses} from '../../../services/client/helpers'
 const teacher = () => {
     const router = useRouter()
     const [courses, setCourses] = useState([])
+    const [isReady, setIsReady] = useState(false)
     useEffect(() => {
         const session = supabase.auth.session()
         if (!session) {
@@ -24,12 +25,19 @@ const teacher = () => {
             })
         }
         fetchUser()
+        setIsReady(false)
         async function fetchUserCoursesHelper() {
             const data = await fetchUserCourses(session.user.id)
-            setCourses([...courses, data])
+            let newCourses = []
+            data.map(async course => {
+                newCourses = [...newCourses, course]
+            })
+            setCourses(newCourses)
+            setIsReady(true)
         }
         fetchUserCoursesHelper()
     }, [])
+   
     const handleCourseCreation = (event) => {
         event.preventDefault()
         router.push('/core/lms/teacher/createcourse')
@@ -57,7 +65,8 @@ const teacher = () => {
         <ArrowRightIcon color='black' height={22} width={22} className="mt-8 ml-2" />
         */}
         </div>
-        {courses[0] ? courses.map(c => {
+        <div className='flex flex-row'>
+        {isReady && courses && courses.map(c => {
             return (
         <div className='flex flex-col mt-6 ml-12'>
         <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -85,8 +94,9 @@ const teacher = () => {
         <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
     </a>
 </div>
-        </div>)}) : <button type="button" class=" ml-12 mt-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-1 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={event => handleCourseCreation(event)}>Create a course</button>
+        </div>)})
 }
+</div>
         </div>
         
         
