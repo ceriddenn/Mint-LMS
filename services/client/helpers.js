@@ -24,4 +24,16 @@ const isUserTeacher = async (userId) => {
     })
     return isTeacher;
 }
-export {fetchUserCourses, getCourseDataFromId, isUserTeacher}
+const getAssignmentDataFromId = async (asId, coId) => {
+    let arr;
+    await supabase.from("courses").select("*").match({courseId: coId}).then(res => {
+        let resl = res.data[0]
+        for (var i =0; i<resl.assignments.length ; i++) {
+            if (resl.assignments[i].asId == asId) {
+                arr = resl.assignments[i];
+            }
+        }
+    })
+    return arr;
+}
+export {fetchUserCourses, getCourseDataFromId, isUserTeacher, getAssignmentDataFromId}
